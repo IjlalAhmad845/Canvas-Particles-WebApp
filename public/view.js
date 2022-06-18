@@ -23,6 +23,9 @@ const rotationSpeedSlider = $('#rotation-speed-slider');
 const rotationRadio1 = $('#clockwise-radio');
 const rotationRadio2 = $('#anti-clockwise-radio');
 
+const showControlsBtn = $('#show-controls-button');
+const hideControlsBtn = $('#hide-controls-button');
+
 let canvasWidth = canvasContainer.width();
 let canvasHeight = canvasContainer.height();
 canvas.width = canvasWidth;
@@ -30,17 +33,35 @@ canvas.height = canvasHeight;
 
 let ctx = canvas.getContext("2d");
 
-//window resize listener
+//resize canvas size
+const resizeCanvas = () => {
+    canvasWidth = canvasContainer.width();
+    canvasHeight = canvasContainer.height();
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+}
+
+//recalculate canvas size on window resize and show/hide controls
 export const restart = (handler) => {
 
     $(window).resize(function () {
         ctx = canvas.getContext("2d");
-        canvasWidth = canvasContainer.width();
-        canvasHeight = canvasContainer.height();
-        canvas.width = canvasWidth;
-        canvas.height = canvasHeight;
+        resizeCanvas();
         handler();
     });
+
+    hideControlsBtn.click(() => {
+        $('#controller-container').hide();
+        showControlsBtn.show();
+        resizeCanvas();
+    })
+
+    showControlsBtn.click(() => {
+        $('#controller-container').show();
+        showControlsBtn.hide();
+        resizeCanvas();
+    });
+
 }
 
 export const defaultValues = (handler) => {

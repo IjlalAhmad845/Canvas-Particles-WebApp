@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>Canvas Simulations</title>
+    <script src="https://kit.fontawesome.com/643e1e523e.js" crossorigin="anonymous"></script>
 </head>
 <body class="overflow-hidden">
+<div id="show-controls-button" class="mx-5 mt-5 flex justify-end absolute hidden">
+    <div class="text-white/50 hover:text-white hover:cursor-pointer active:text-white/50">
+        <i class="fa-regular fa-circle-right w-10 h-10"></i>
+    </div>
+</div>
 <div class="flex flex-row w-full h-full bg-gray-800">
     <!--Controls Div-->
-    <div class="h-[100vh] w-[24rem]  bg-violet-500/80 rounded-tr-3xl rounded-br-3xl flex justify-center items-center">
+    <div id="controller-container"
+         class="h-[100vh] w-[24rem]  bg-violet-500/80 rounded-tr-3xl rounded-br-3xl">
         <!-- controls anim controller div-->
         <div class="h-fit w-[24rem] flex-1 flex flex-col gap-6 text-black/80  select-none">
+
+            <div id="hide-controls-button" class="mx-5 mt-5 flex justify-end ">
+                <div class="text-black/50 hover:text-black/80 hover:cursor-pointer active:text-black/20">
+                    <i class="fa-regular fa-circle-left w-10 h-10"></i>
+                </div>
+            </div>
             <!--particles quantity box-->
             <div id="particles-box" class="mx-5 bg-gray-700 rounded-xl shadows">
                 <div class="px-5 py-4 flex flex-col gap-2">
