@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "cssnano": "^5.1.7",
-    "jquery": "^3.6.0",
     "live-server": "^1.2.2"
   }
 }
