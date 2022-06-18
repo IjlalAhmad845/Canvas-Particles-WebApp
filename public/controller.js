@@ -74,15 +74,15 @@ const createVectors = (circle, j) => {
     ctx.closePath();
 }
 
-View.canvasMouseDown(() => {
+View.canvasMouseDown((e) => {
     Model.setMouseClicked(true)
-    modelState.mouseEvent.x = event.offsetX;
-    modelState.mouseEvent.y = event.offsetY;
+    modelState.mouseEvent.x = e.offsetX;
+    modelState.mouseEvent.y = e.offsetY;
 });
 View.canvasMouseUp(() => Model.setMouseClicked(false));
 View.canvasMouseMove((e) => {
-    modelState.mouseEvent.x = e.offsetX;
-    modelState.mouseEvent.y = e.offsetY;
+    modelState.mouseEvent.x = e.offsetX
+    modelState.mouseEvent.y = e.offsetY
 })
 
 
@@ -92,7 +92,7 @@ const animate = () => {
     if (modelState.rotate) {
         ctx.save();
         ctx.translate(View.canvasWidth / 2, View.canvasHeight / 2);
-        ctx.rotate(modelState.rotationAngle * .0005);
+        ctx.rotate(Math.PI / 180 * modelState.rotationAngle);
     }
     requestAnimationFrame(animate);
     Model.state.circlesArray.forEach((circle, index) => {
@@ -125,7 +125,8 @@ const animate = () => {
     });
 
     createCircles()
-    Model.setRotationAngle(modelState.rotationAngle + modelState.rotationSpeed * 0.2*modelState.rotationDirection);
+    Model.setRotationAngle((modelState.rotationAngle + .005 * modelState.rotationSpeed * modelState.rotationDirection) % 360)
+
     if (modelState.rotate) ctx.restore();
 
 }

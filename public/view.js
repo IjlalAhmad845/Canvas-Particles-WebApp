@@ -1,8 +1,6 @@
 const canvas = $('#canvas')[0];
 const canvasContainer = $('#canvas-container');
 
-const controlsCheckbox = $('#controls-controller-box');
-const controlsFrequency = $('#controls-freq-slider');
 //particles controller
 const particlesQuantity = $('#particles-quantity-slider');
 const particlesSpeed = $('#particles-speed-slider');
@@ -84,10 +82,12 @@ const vectorSliderLabel = $('#vectors-slider-label');
 //VECTORS TYPE RADIOS
 export const randomRadio = (handler) => vectorsRadio1.on('change', () => {
     vectorSliderLabel.text("Amount")
+    $('#rotation-container').removeClass('disable')
     handler();
 })
 export const mouseRadio = (handler) => vectorsRadio2.on('change', () => {
     vectorSliderLabel.text("Radius")
+    $('#rotation-container').addClass('disable')
     handler();
 });
 
@@ -118,9 +118,11 @@ export const rotationCheckHandler = (handler) => rotationCheckbox.on('change', (
     if (e.target.checked) {
         $('#rotation-slider-container').removeClass('disable');
         $('#rotation-radios-container').removeClass('disable');
+        $('#mouse-radio-container').addClass('disable');
     } else {
         $('#rotation-slider-container').addClass('disable');
         $('#rotation-radios-container').addClass('disable');
+        $('#mouse-radio-container').removeClass('disable');
     }
     handler()
 });
