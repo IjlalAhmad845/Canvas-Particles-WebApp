@@ -49,8 +49,8 @@ View.rotationSpeedHandler(e => Model.setRotationSpeed(+e.target.value));
 View.clockwiseRadio(() => Model.setRotationDirection(1));
 View.antiClockwiseRadio(() => Model.setRotationDirection(-1));
 
+let x, y;
 const createCircles = () => {
-    let x, y;
     if (modelState.rotate) {
         x = Math.random() * View.canvasWidth - View.canvasWidth / 2;
         y = Math.random() * View.canvasWidth - View.canvasWidth / 2;

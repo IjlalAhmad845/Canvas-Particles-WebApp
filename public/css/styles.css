@@ -8,6 +8,6 @@
     }
 
     .shadows {
-        @apply shadow-xl shadow-black/50;
+        @apply shadow-lg shadow-black/60;
     }
 }
