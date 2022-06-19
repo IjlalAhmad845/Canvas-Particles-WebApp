@@ -1,3 +1,3 @@
 # Canvas-Particles-WebApp
 
-click [Here](https://ijlalahmad-particles-simulation.netlify.app/) to see
+click [Here](https://ijlalahmad-canvas-particles.netlify.app/) to see
