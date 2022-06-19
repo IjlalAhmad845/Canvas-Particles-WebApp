@@ -1,3 +1,4 @@
+import $ from 'jquery';
 const canvas = $('#canvas')[0];
 const canvasContainer = $('#canvas-container');
 
